@@ -22,13 +22,10 @@ namespace New_new
         {
             return _satiety_scale = _satiety_scale + _satiety_meat;
         }
-
         public int Replenish_maet()
         {
             return Update_satiety_meat();
         }
-
-
         private int Update_satiety_plant()
         {
             return _satiety_scale = _satiety_scale + _satiety_plant;
@@ -37,5 +34,7 @@ namespace New_new
         {
             return Update_satiety_plant();
         }
+
+
     }
 }

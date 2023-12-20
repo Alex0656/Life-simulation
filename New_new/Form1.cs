@@ -19,7 +19,9 @@ namespace New_new
         public Form1()
         {
             InitializeComponent();
-            pictureBox1.Image = new Bitmap(2000, 2000); //_pictureBox1.Width, _pictureBox1.Height
+            pictureBox1.Width = 4000;
+            pictureBox1.Height = 4000;
+            pictureBox1.Image = new Bitmap(4000, 4000); //_pictureBox1.Width, _pictureBox1.Height
             graphics = Graphics.FromImage(pictureBox1.Image);
 
         }
@@ -27,7 +29,7 @@ namespace New_new
         private void timer1_Tick(object sender, EventArgs e)
         {
             my_logic.Update_map();
-            _my_graphics.DrawMap(new_map._createdAnimals, new_map._createdPlants);
+            _my_graphics.DrawMap(new_map._createdAnimals, new_map._createdPlants, new_map._createdKilledAnimals, my_logic, new_map._createdBuilding);
         }
 
         private void bStart_Click(object sender, EventArgs e)
@@ -62,6 +64,9 @@ namespace New_new
             nubDensity.Enabled = true;
 
         }
+
+
+
     }
 
 }
