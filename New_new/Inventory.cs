@@ -8,18 +8,12 @@ namespace New_new
 {
     public class Inventory
     {
-        public List<Resources> MyResources = new List<Resources>();
-        //private int _resources_limits = 25;
         public int _meat { get; set; } = 0;
         public int _fruit { get; set; } = 0;
         public int _plant { get; set; } = 0;
+        public int _inventory_limits { get; set; }  = 15;
 
-        private int _inventory_limits = 10;
-        //private int _meat_limits = 15;
-        //private int _fruit_limits = 25;
-        //private int _plant_limits = 15;
-
-        public bool sum()
+        public bool sum() // если что-то есть в инвентаре, что можно скушать
         {
             if (_plant + _fruit + _meat > 0)
             {
@@ -30,9 +24,9 @@ namespace New_new
                 return false;
             }
         }
-        public bool Limit()
+        public bool Limit() // если есть место, то можно добавить
         {
-            if (_plant + _fruit + _meat < _inventory_limits)
+            if (_plant + _fruit + _meat <= _inventory_limits)
             {
                 return true;
             }
