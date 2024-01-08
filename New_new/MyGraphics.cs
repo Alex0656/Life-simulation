@@ -36,14 +36,14 @@ namespace New_new
                 _graphics.Clear(Color.LightGray);
             }
             
-            DrawObj_p(plant_list);
-            DrawObj_k_a(killed_animal_list);
-            DrawObj_a(animal_list);
+            DrawPlant(plant_list);
+            DrawKilledAnimal(killed_animal_list);
+            DrawAnimal(animal_list);
             DrawBuilding(building_list);
             _pictureBox1.Refresh();
         }
 
-        private void DrawObj_a(List<Animal> animal_list)
+        private void DrawAnimal(List<Animal> animal_list)
         {
             foreach (Animal animal in animal_list)
             {
@@ -51,7 +51,7 @@ namespace New_new
             }
         }
 
-        private void DrawObj_p(List<Plant> plant_list)
+        private void DrawPlant(List<Plant> plant_list)
         {
             foreach (Plant plant in plant_list)
             {
@@ -70,7 +70,7 @@ namespace New_new
             }
         }
 
-        private void DrawObj_k_a(List<KilledAnimal> killed_animal_list)
+        private void DrawKilledAnimal(List<KilledAnimal> killed_animal_list)
         {
             foreach (KilledAnimal k_animal in killed_animal_list)
             {
