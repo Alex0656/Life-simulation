@@ -97,11 +97,7 @@ namespace New_new
             if (_ticksToNextStage == 0)
             {
                 stage++;
-                if (stage == 2)
-                {
-                    _ticksToNextStage = _appearanceRateStage;
-                }
-                else if(stage == 3)
+                if ((stage == 2) || (stage == 3))
                 {
                     _ticksToNextStage = _appearanceRateStage;
                 }
