@@ -110,10 +110,7 @@ namespace New_new
                 _foodscale = food.Replenish_plant();
                 temp_plant.death = true;
             }
-            //else if (_point_eat.X == 0 && _point_eat.Y == 0 && !IsFreeCell(_point_eat.X, _point_eat.Y, new_map))
-            //{
-            //    Walk(new_map);
-            //}
+
             else if (_point_eat.X == _x && _point_eat.Y < _y)
             {
                 _y--;
