@@ -16,7 +16,6 @@ namespace New_new
         public bool death { get; set; } = false;
         public Mine(int mine_limits, int x, int y)
         {
-            //Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human.png");
             _mine_limits = mine_limits;
             _x = x;
             _y = y;
@@ -36,7 +35,7 @@ namespace New_new
             _mine_limits = _mine_limits - 5;
 
         }
-        public void Raise() // сбор без инструментов
+        public void Raise()
         {
             RaiseP();
         }
@@ -44,7 +43,7 @@ namespace New_new
         {
             death = true;
         }
-        public void Update() // ссылка в GameLogic
+        public void Update()
         {
             if (_mine_limits <= 0)
             {

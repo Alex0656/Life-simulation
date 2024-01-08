@@ -46,48 +46,6 @@ namespace New_new
             return _map._createdPlants.FirstOrDefault(p => p._x == x && p._y == y && (p is Fruit || p is FruitPoison)) != null; // 
         }
         protected abstract void Spread();
-        //protected abstract Plant GetNewPlant();
-        /*
-        protected void Spread()
-        {
-            int value = GameLogic.Random(1, 4);
-            if ((value == 1) && (_x < cols))
-            {
-                if (!IsFreeCell(_x + 1, _y))
-                {
-                    var plant = new EdiblePlants(_x + 1, _y, _map, _poison, _fruit);
-                    //var plant = new GetNewPlant()(_x + 1, _y, _map, _poison, _fruit);
-                    _map._createdPlants.Add(plant);
-                }
-            }
-            else if ((value == 2) && (_y < row))
-            {
-                if (!IsFreeCell(_x, _y + 1))
-                {
-                    var plant = new EdiblePlants(_x, _y + 1, _map, _poison, _fruit);
-                    _map._createdPlants.Add(plant);
-                }
-
-            }
-            else if ((value == 3) && (_x > 0))
-            {
-                if (!IsFreeCell(_x - 1, _y))
-                {
-                    var plant = new EdiblePlants(_x - 1, _y, _map, _poison, _fruit);
-                    _map._createdPlants.Add(plant);
-                }
-
-            }
-            else if ((value == 4) && (_y > 0))
-            {
-                if (!IsFreeCell(_x, _y - 1))
-                {
-                    var plant = new EdiblePlants(_x, _y - 1, _map, _poison, _fruit);
-                    _map._createdPlants.Add(plant);
-                }
-            }
-        }
-        */
         protected void Die()
         {
             death = true;  
@@ -207,7 +165,6 @@ namespace New_new
             { 
                 Grow();
             }
-            //base.Update();
         }
         
     }

@@ -10,7 +10,6 @@ namespace New_new
 {
     public abstract class Omnivorous : Animal
     {
-        //private bool flag1 = true;
         public Omnivorous(int x, int y, bool female, Map map, bool child)
             : base(x, y, female, map, child)
         {
@@ -59,7 +58,6 @@ namespace New_new
             {
                 _foodscale = food.Replenish_plant();
                 plant.death = true;
-                // создать класс гнилого растения
             }
             else if (animal != null)
             {

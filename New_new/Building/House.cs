@@ -23,8 +23,5 @@ namespace New_new
             }
             
         }
-        //public bool village = false;
-
-        
     }
 }

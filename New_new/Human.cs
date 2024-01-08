@@ -120,27 +120,21 @@ namespace New_new
 
             if (carrion != null)
             {
-                //var meat = new Meat(_x, _y);
-                //inventory._createdEdibles.Add(meat);
                 inventory._meat++;
                 carrion.TakePiece();
             }
             else if (fruit != null)
             {
-                //inventory._createdEdibles.Add(fruit); // добавляю сьедобный обьект
-                inventory._fruit++; // не веду учёт
+                inventory._fruit++;
                 fruit.death = true;
             }
             else if (plant != null)
             {
-                //inventory._createdEdibles.Add(plant); 
                 inventory._plant++;
                 plant.death = true;
             }
             else if (animal != null)
             {
-                //var meat = new Meat(_x, _y);
-                //inventory._createdEdibles.Add(meat);
                 inventory._meat++;
                 animal.death = true;
                 var killed_animal = new KilledAnimal(_x, _y, _map);
@@ -280,7 +274,6 @@ namespace New_new
                 _hp--;
                 if (inventory.sum())
                 {
-                    //inventory.EatInventoryy(_foodscale); // кушает ласт элемент из инвентаря и возвращает новую шкалу
                     EatInventory();
                 }
                 else
@@ -293,7 +286,6 @@ namespace New_new
                 _foodscale--;
                 if (inventory.sum())
                 {
-                    //inventory.EatInventoryy(_foodscale); // кушает ласт элемент из инвентаря и возвращает новую шкалу
                     EatInventory();
                 }
                 else
@@ -313,15 +305,10 @@ namespace New_new
                 {
                     BuildHouse();
                 }
-                //else if (my_house.village != null)
-                //{
-                //    profession.GetProfession();
-                //}
                 else  
                 {
                     if (inventory.Limit())
                     {
-                        // теперь добавляются обьекты
                         FoodExtraction();
                     }
                     else if (!inventory.Limit())
@@ -491,7 +478,6 @@ namespace New_new
 
             if (FindPartner(_x, _y, _female) != null)
             {
-                //_ticksToNextReproduction = _appearanceRate;
                 my_partner = (Human)FindPartner(_x, _y, _female);
                 my_partner.my_partner = this;
                 if(my_partner.my_house != null)
@@ -529,7 +515,6 @@ namespace New_new
         protected override Animal FindPartner(int x, int y, bool female)
         {
             var _list_human = _map._createdAnimals.OfType<Human>();
-            // && p.my_partner == null
 
             return _list_human.FirstOrDefault(p => p._x == x && p._y == y && p._female != female &&
             p._ticksToNextReproduction <= 0 && p is Human && p.my_partner == null); 

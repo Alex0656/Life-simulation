@@ -67,7 +67,6 @@ namespace New_new
                 {
                     _graphics.DrawImage(plant.Image, plant._x * _resolution, plant._y * _resolution);
                 }
-                //_graphics.FillRectangle(plant.Color, plant._x * _resolution, plant._y * _resolution, _resolution, _resolution);
             }
         }
 

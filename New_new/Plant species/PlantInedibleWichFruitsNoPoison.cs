@@ -89,7 +89,6 @@ namespace New_new
             {
                 Grow();
             }
-            //base.Update();
         }
     }
 }
