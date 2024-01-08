@@ -272,7 +272,7 @@ namespace New_new
             else if (_foodscale <= 0)
             {
                 _hp--;
-                if (inventory.sum())
+                if (inventory.CheckForEmptiness())
                 {
                     EatInventory();
                 }
@@ -284,7 +284,7 @@ namespace New_new
             else if (_foodscale <= foodwalk_scale)
             {
                 _foodscale--;
-                if (inventory.sum())
+                if (inventory.CheckForEmptiness())
                 {
                     EatInventory();
                 }
@@ -307,11 +307,11 @@ namespace New_new
                 }
                 else  
                 {
-                    if (inventory.Limit())
+                    if (inventory.CheckForOverflow())
                     {
                         FoodExtraction();
                     }
-                    else if (!inventory.Limit())
+                    else if (!inventory.CheckForOverflow())
                     {
                         Walk();
                     }

@@ -15,7 +15,7 @@ namespace New_new
 
         private int _inventory_limits = 10;
 
-        public bool sum()
+        public bool CheckForEmptiness()
         {
             if (_plant + _fruit + _meat > 0)
             {
@@ -26,7 +26,7 @@ namespace New_new
                 return false;
             }
         }
-        public bool Limit()
+        public bool CheckForOverflow()
         {
             if (_plant + _fruit + _meat < _inventory_limits)
             {
