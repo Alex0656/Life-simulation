@@ -42,6 +42,70 @@ namespace New_new
             return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._female != female &&
             p._ticksToNextReproduction <= 0 && p is Omnivorous);
         }
+
+        private void MoveOmnivorous(int x, int y, bool flag)
+        {
+            if (y == _y && _x < x)
+            {
+                _x++;
+            }
+            else if (y == _y && _x > x)
+            {
+                _x--;
+            }
+            else if (x == _x && _y > y)
+            {
+                _y--;
+            }
+            else if (x == _x && _y < y)
+            {
+                _y++;
+            }
+
+            else if (x > _x && y < _y && flag1 == true)
+            {
+                _x++;
+                flag1 = false;
+            }
+            else if (x > _x && y < _y && flag1 == false)
+            {
+                _y--;
+                flag1 = true;
+            }
+
+            else if (x < _x && y < _y && flag1 == true)
+            {
+                _x--;
+                flag1 = false;
+            }
+            else if (x < _x && y < _y && flag1 == false)
+            {
+                _y--;
+                flag1 = true;
+            }
+
+            else if (x < _x && y > _y && flag1 == true)
+            {
+                _x--;
+                flag1 = false;
+            }
+            else if (x < _x && y > _y && flag1 == false)
+            {
+                _y++;
+                flag1 = true;
+            }
+
+            else if (x > _x && y > _y && flag1 == true)
+            {
+                _x++;
+                flag1 = false;
+            }
+            else if (x > _x && y > _y && flag1 == false)
+            {
+                _y++;
+                flag1 = true;
+            }
+        }
         protected override void PartnerSearch()
         {
             PartnerSearchCell();
@@ -52,66 +116,7 @@ namespace New_new
             }
             else if (FindPartner(_point_partner.X, _point_partner.Y, _female) != null)
             {
-                if (_point_partner.Y == _y && _x < _point_partner.X)
-                {
-                    _x++;
-                }
-                else if (_point_partner.Y == _y && _x > _point_partner.X)
-                {
-                    _x--;
-                }
-                else if (_point_partner.X == _x && _y > _point_partner.Y)
-                {
-                    _y--;
-                }
-                else if (_point_partner.X == _x && _y < _point_partner.Y)
-                {
-                    _y++;
-                }
-
-                else if (_point_partner.X > _x && _point_partner.Y < _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_partner.X > _x && _point_partner.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_partner.X < _x && _point_partner.Y < _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_partner.X < _x && _point_partner.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_partner.X < _x && _point_partner.Y > _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_partner.X < _x && _point_partner.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
-
-                else if (_point_partner.X > _x && _point_partner.Y > _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_partner.X > _x && _point_partner.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
+                MoveOmnivorous(_point_partner.X, _point_partner.Y, flag1);
             }
             else
             {
@@ -226,71 +231,10 @@ namespace New_new
                 _foodscale = food.Replenish_maet();
                 temp_animal.death = true;
             }
-
             else
             {
-                if (_point_eat.Y == _y && _x < _point_eat.X)
-                {
-                    _x++;
-                }
-                else if (_point_eat.Y == _y && _x > _point_eat.X)
-                {
-                    _x--;
-                }
-                else if (_point_eat.X == _x && _y > _point_eat.Y)
-                {
-                    _y--;
-                }
-                else if (_point_eat.X == _x && _y < _point_eat.Y)
-                {
-                    _y++;
-                }
-
-                else if (_point_eat.X > _x && _point_eat.Y < _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_eat.X > _x && _point_eat.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_eat.X < _x && _point_eat.Y < _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_eat.X < _x && _point_eat.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_eat.X < _x && _point_eat.Y > _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_eat.X < _x && _point_eat.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
-
-                else if (_point_eat.X > _x && _point_eat.Y > _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_eat.X > _x && _point_eat.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
+                MoveOmnivorous(_point_eat.X, _point_eat.Y, flag1);
             }
         }
-
     }
 }
