@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using Microsoft.VisualBasic.ApplicationServices;
 
-namespace New_new
+namespace LifeSimulation
 {
     public class PlantEdibleWichFruitsNoPoison : PlantEdibleWichFruits
     {

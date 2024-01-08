@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace New_new
+namespace LifeSimulation
 {
     public class PlantInedibleWithoutFruits : PlantInedible
     {

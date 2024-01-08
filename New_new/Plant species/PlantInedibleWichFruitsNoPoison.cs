@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 
 
-namespace New_new
+namespace LifeSimulation
 {
     class PlantInedibleWichFruitsNoPoison : PlantInedible
     {

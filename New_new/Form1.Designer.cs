@@ -1,5 +1,5 @@
 ﻿
-namespace New_new
+namespace LifeSimulation
 {
     partial class Form1
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace New_new
+namespace LifeSimulation
 {
     public class Deer : Herbivores
     {
