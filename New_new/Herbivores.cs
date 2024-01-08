@@ -41,6 +41,47 @@ namespace New_new
             return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._female != female &&
             p._ticksToNextReproduction <= 0 && p is Herbivores);
         }
+
+        private void MoveHerbivore(int x, int y)
+        {
+            if (x == _x && y < _y)
+            {
+                _y--;
+            }
+            else if (x == _x && y > _y)
+            {
+                _y++;
+            }
+            else if (y == _y && x > _x)
+            {
+                _x++;
+            }
+            else if (y == _y && x < _x)
+            {
+                _x--;
+            }
+
+            else if (x > _x && y < _y)
+            {
+                _x++;
+                _y--;
+            }
+            else if (x < _x && y < _y)
+            {
+                _x--;
+                _y--;
+            }
+            else if (x < _x && y > _y)
+            {
+                _x--;
+                _y++;
+            }
+            else if (x > _x && y > _y)
+            {
+                _x++;
+                _y++;
+            }
+        }
         protected override void PartnerSearch()
         {
             PartnerSearchCell();
@@ -51,44 +92,7 @@ namespace New_new
             }
             else if (FindPartner(_point_partner.X, _point_partner.Y, _female) != null)
             {
-                if (_point_partner.X == _x && _point_partner.Y < _y)
-                {
-                    _y--;
-                }
-                else if (_point_partner.X == _x && _point_partner.Y > _y)
-                {
-                    _y++;
-                }
-                else if (_point_partner.Y == _y && _point_partner.X > _x)
-                {
-                    _x++;
-                }
-                else if (_point_partner.Y == _y && _point_partner.X < _x)
-                {
-                    _x--;
-                }
-
-                else if (_point_partner.X > _x && _point_partner.Y < _y)
-                {
-                    _x++;
-                    _y--;
-                }
-                else if (_point_partner.X < _x && _point_partner.Y < _y)
-                {
-                    _x--;
-                    _y--;
-                }
-                else if (_point_partner.X < _x && _point_partner.Y > _y)
-                {
-                    _x--;
-                    _y++;
-                }
-                else if (_point_partner.X > _x && _point_partner.Y > _y)
-                {
-                    _x++;
-                    _y++;
-                }
-
+                MoveHerbivore(_point_partner.X, _point_partner.Y);
             }
             else
             {
@@ -118,44 +122,7 @@ namespace New_new
             }
             else if (value >= 5)
             {
-                if (_point_eat.X == _x && _point_eat.Y < _y)
-                {
-                    _y--;
-                }
-                else if (_point_eat.X == _x && _point_eat.Y > _y)
-                {
-                    _y++;
-                }
-                else if (_point_eat.Y == _y && _point_eat.X > _x)
-                {
-                    _x++;
-                }
-                else if (_point_eat.Y == _y && _point_eat.X < _x)
-                {
-                    _x--;
-                }
-
-                else if (_point_eat.X > _x && _point_eat.Y < _y)
-                {
-                    _x++;
-                    _y--;
-                }
-                else if (_point_eat.X < _x && _point_eat.Y < _y)
-                {
-                    _x--;
-                    _y--;
-                }
-                else if (_point_eat.X < _x && _point_eat.Y > _y)
-                {
-                    _x--;
-                    _y++;
-                }
-                else if (_point_eat.X > _x && _point_eat.Y > _y)
-                {
-                    _x++;
-                    _y++;
-                }
-
+                MoveHerbivore(_point_eat.X, _point_eat.Y);
             }
         }
         protected override bool IsFreeCell(int x, int y)
@@ -184,42 +151,10 @@ namespace New_new
             //{
             //    Walk(new_map);
             //}
-            else if (_point_eat.X == _x && _point_eat.Y < _y)
-            {
-                _y--;
-            }
-            else if (_point_eat.X == _x && _point_eat.Y > _y)
-            {
-                _y++;
-            }
-            else if (_point_eat.Y == _y && _point_eat.X > _x)
-            {
-                _x++;
-            }
-            else if (_point_eat.Y == _y && _point_eat.X < _x)
-            {
-                _x--;
-            }
 
-            else if (_point_eat.X > _x && _point_eat.Y < _y)
+            else
             {
-                _x++;
-                _y--;
-            }
-            else if (_point_eat.X < _x && _point_eat.Y < _y)
-            {
-                _x--;
-                _y--;
-            }
-            else if (_point_eat.X < _x && _point_eat.Y > _y)
-            {
-                _x--;
-                _y++;
-            }
-            else if (_point_eat.X > _x && _point_eat.Y > _y)
-            {
-                _x++;
-                _y++;
+                MoveHerbivore(_point_eat.X, _point_eat.Y);
             }
         }
 
