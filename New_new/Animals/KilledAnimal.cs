@@ -39,11 +39,7 @@ namespace New_new
         public void Update()
         {
             _lifetime++;
-            if (_lifetime == limit_life)
-            {
-                Die();
-            }
-            if(_amount_of_meat <= 0)
+            if ((_lifetime == limit_life) || (_amount_of_meat <= 0))
             {
                 Die();
             }
