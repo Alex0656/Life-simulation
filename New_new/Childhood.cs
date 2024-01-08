@@ -19,7 +19,7 @@ namespace New_new
 
         protected void Walk()
         {
-            int value = GameLogic.Random(0, 4);
+            int value = GameLogic.GenerateNumber(0, 4);
             if ((value == 1) && (_human._x < _human.cols))
             {
                 _human._x = _human._x + 1;

@@ -147,7 +147,7 @@ namespace New_new
         }
         protected override void Walk()
         {
-            int value = GameLogic.Random(0, 4);
+            int value = GameLogic.GenerateNumber(0, 4);
             if ((value == 1) && (_x < cols))
             {
                 _x = _x + 1;
@@ -500,7 +500,7 @@ namespace New_new
         }
         protected override void GetNewChild()
         {
-            int value = GameLogic.Random(0, 1);
+            int value = GameLogic.GenerateNumber(0, 1);
             if (value == 0)
             {
                 my_child = new Human(_x, _y, true, _map, true);

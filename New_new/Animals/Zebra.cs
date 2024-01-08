@@ -21,7 +21,7 @@ namespace New_new
         }
         protected override void GetNewChild()
         {
-            int value = GameLogic.Random(0, 1);
+            int value = GameLogic.GenerateNumber(0, 1);
             if (value == 0)
             {
                 _map._createdAnimals.Add(new Zebra(_x, _y, true, _map, true));

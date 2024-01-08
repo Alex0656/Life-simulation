@@ -37,11 +37,11 @@ namespace New_new
           {
               for (int y = 0; y < _row; y++)
               {
-                  int value_2 = GameLogic.Random(0, _density);
+                  int value_2 = GameLogic.GenerateNumber(0, _density);
                   field[x, y] = value_2 == 0;
                   if (field[x, y] == true)
                   {
-                      int value = GameLogic.Random(0, 1);
+                      int value = GameLogic.GenerateNumber(0, 1);
                       bool temp_0;
                       if (value == 0)
                       {
@@ -51,8 +51,8 @@ namespace New_new
                       {
                           temp_0 = true;
                       }
-                      int temp = GameLogic.Random(0, 100);
-                      int temp_2 = GameLogic.Random(0, 10);
+                      int temp = GameLogic.GenerateNumber(0, 100);
+                      int temp_2 = GameLogic.GenerateNumber(0, 10);
                       if ((temp >= 0) && (temp <= 60))
                       {
                           if (temp_2 == 1 || temp_2 == 0)

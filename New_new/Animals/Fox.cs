@@ -22,7 +22,7 @@ namespace New_new
 
         protected override void GetNewChild()
         {
-            int value = GameLogic.Random(0, 1);
+            int value = GameLogic.GenerateNumber(0, 1);
             if (value == 0)
             {
                 _map._createdAnimals.Add(new Fox(_x, _y, true, _map, true));
@@ -39,7 +39,7 @@ namespace New_new
         }
         protected override void Walk()
         {
-            int value = GameLogic.Random(1, 5);
+            int value = GameLogic.GenerateNumber(1, 5);
             if ((value == 1) && (_x < cols))
             {
                 _x = _x + 1;

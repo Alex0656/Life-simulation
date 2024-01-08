@@ -171,7 +171,7 @@ namespace New_new
 
         }
 
-        public static int Random(int x, int y)
+        public static int GenerateNumber(int x, int y)
         {
             int value = rnd.Next(x, y + 1);
             return value;

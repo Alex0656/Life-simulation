@@ -27,7 +27,7 @@ namespace New_new
                 FoodSearch();
             }
 
-            int value = GameLogic.Random(1, 6);
+            int value = GameLogic.GenerateNumber(1, 6);
             if ((value == 1) && (_x < cols))
             {
                 _x = _x + 1;

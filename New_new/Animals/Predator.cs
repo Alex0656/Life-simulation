@@ -23,7 +23,7 @@ namespace New_new
 
         protected override void Walk()
         {
-            int value = GameLogic.Random(0, 4);
+            int value = GameLogic.GenerateNumber(0, 4);
             if ((value == 1) && (_x < cols))
             {
                 _x = _x + 1;

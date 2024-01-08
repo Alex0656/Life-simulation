@@ -68,7 +68,7 @@ namespace New_new
 
         protected void SpreadFruitPoison()
         {
-            int value = GameLogic.Random(1, 4);
+            int value = GameLogic.GenerateNumber(1, 4);
             if ((value == 1) && (_x < cols))
             {
                 if (!IsFreeCellFruit(_x + 1, _y))
@@ -107,7 +107,7 @@ namespace New_new
         protected void SpreadFruitNoPoison()
         {
 
-            int value = GameLogic.Random(1, 4);
+            int value = GameLogic.GenerateNumber(1, 4);
             if ((value == 1) && (_x < cols))
             {
                 if (!IsFreeCellFruit(_x + 1, _y))

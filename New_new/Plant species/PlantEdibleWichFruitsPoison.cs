@@ -24,7 +24,7 @@ namespace New_new
         }
         protected override void Spread()
         {
-            int value = GameLogic.Random(1, 4);
+            int value = GameLogic.GenerateNumber(1, 4);
             if ((value == 1) && (_x < cols))
             {
                 if (!IsFreeCell(_x + 1, _y))
