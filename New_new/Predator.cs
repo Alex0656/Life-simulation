@@ -42,6 +42,25 @@ namespace New_new
             return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._female != female &&
             p._ticksToNextReproduction <= 0 && p is Predator);
         }
+        private void MovePredator(int x, int y)
+        {
+            if (x < _x)
+            {
+                _x--;
+            }
+            else if (x > _x)
+            {
+                _x++;
+            }
+            else if (y < _y)
+            {
+                _y--;
+            }
+            else if (y > _y)
+            {
+                _y++;
+            }
+        }
         protected override void PartnerSearch()
         {
             PartnerSearchCell();
@@ -52,22 +71,7 @@ namespace New_new
             }
             else if (FindPartner(_point_partner.X, _point_partner.Y, _female) != null)
             {
-                if (_point_partner.X < _x)
-                {
-                    _x--;
-                }
-                else if (_point_partner.X > _x)
-                {
-                    _x++;
-                }
-                else if (_point_partner.Y < _y)
-                {
-                    _y--;
-                }
-                else if (_point_partner.Y > _y)
-                {
-                    _y++;
-                }
+                MovePredator(_point_partner.X, _point_partner.Y);
             }
             else
             {
@@ -119,22 +123,7 @@ namespace New_new
             //}
             else
             {
-                if (_point_eat.X < _x)
-                {
-                    _x--;
-                }
-                else if (_point_eat.X > _x)
-                {
-                    _x++;
-                }
-                else if (_point_eat.Y < _y)
-                {
-                    _y--;
-                }
-                else if (_point_eat.Y > _y)
-                {
-                    _y++;
-                }
+                MovePredator(_point_eat.X, _point_eat.Y);
             }
         }
 
