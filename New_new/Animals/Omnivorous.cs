@@ -48,22 +48,21 @@ namespace New_new
             var plant = CellPlant(_x, _y);
             var maet = CellKilledAnimal(_x, _y);
             var animal = CellAnimal(_x, _y);
+            Food food = new Food(_foodscale);
+
             if (maet != null)
             {
-                Food food = new Food(_foodscale);
                 _foodscale = food.Replenish_maet();
                 maet.TakePiece();
             }
             else if (plant != null)
             {
-                Food food = new Food(_foodscale);
                 _foodscale = food.Replenish_plant();
                 plant.death = true;
                 // создать класс гнилого растения
             }
             else if (animal != null)
             {
-                Food food = new Food(_foodscale);
                 _foodscale = food.Replenish_maet();
                 animal.death = true;
                 var killed_animal = new KilledAnimal(_x, _y, _map);
