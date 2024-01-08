@@ -278,11 +278,7 @@ namespace New_new
                     Walk();
                 }
             }
-            if (_hp == 0)
-            {
-                Die();
-            }
-            if (_lifetime == limit_life)
+            if ((_hp == 0) || (_lifetime == limit_life))
             {
                 Die();
             }
