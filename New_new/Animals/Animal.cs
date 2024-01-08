@@ -204,14 +204,7 @@ namespace New_new
             free_cell.Add(point);
 
             int[,] matrix = new int[cols + 1, row + 1];
-            for (int i = 0; i < cols; i++)
-            {
-                for (int j = 0; j < row; j++)
-                {
-                    matrix[i, j] = 0;
-                }
-            }
-
+            CreateZeroMatrix(matrix, cols, row);
             matrix[_x, _y] = 1;
 
             while (free_cell.Count != 0)
