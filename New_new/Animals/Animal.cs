@@ -31,16 +31,16 @@ namespace New_new
 
 
         protected Point _point_partner = new Point();
-        public bool _female;
+        public bool _gender;
         public bool _child;
         protected int _appearanceRate = 30;
         public int _ticksToNextReproduction { get; set; } = 30; 
 
-        public Animal(int x, int y, bool female, Map map, bool child)
+        public Animal(int x, int y, bool gender, Map map, bool child)
         {
             _x = x;
             _y = y;
-            _female = female;
+            _gender = gender;
             _map = map;
             _child = child;
             cols = map._cols - 1;
@@ -76,7 +76,7 @@ namespace New_new
                 free_cell.RemoveAt(0);
 
 
-                if (FindPartner(x1, y1, _female) != null)
+                if (FindPartner(x1, y1, _gender) != null)
                 {
                     _point_partner.X = x1;
                     _point_partner.Y = y1;
@@ -113,7 +113,7 @@ namespace New_new
         {
             
             _ticksToNextReproduction = _appearanceRate;
-            if (_female == true)
+            if (_gender == true)
             {
                 GetNewChild();
             }
@@ -122,11 +122,11 @@ namespace New_new
         {
             PartnerSearchCell();
 
-            if (FindPartner(_x, _y, _female) != null)
+            if (FindPartner(_x, _y, _gender) != null)
             {
                 Reproduction();
             }
-            else if (FindPartner(_point_partner.X, _point_partner.Y, _female) != null)
+            else if (FindPartner(_point_partner.X, _point_partner.Y, _gender) != null)
             {
                 if (_point_partner.Y == _y && _x < _point_partner.X)
                 {

@@ -41,11 +41,11 @@ namespace New_new
         {
             if (time >= ticks_growing)
             {
-                if (_human._female)
+                if (_human._gender)
                 {
                     _human.Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human_2.png");
                 }
-                else if (!_human._female)
+                else if (!_human._gender)
                 {
                     _human.Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human.png");
                 }

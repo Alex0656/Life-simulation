@@ -33,7 +33,7 @@ namespace New_new
         }
         protected override Animal FindPartner(int x, int y, bool female)
         {
-            return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._female != female &&
+            return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._gender != female &&
             p._ticksToNextReproduction <= 0 && p is Bear);
         }
         protected override void Walk()

@@ -301,7 +301,7 @@ namespace New_new
                 {
                     Reproduction();
                 }
-                else if (my_house == null && !_female && my_partner != null)
+                else if (my_house == null && !_gender && my_partner != null)
                 {
                     BuildHouse();
                 }
@@ -451,7 +451,7 @@ namespace New_new
                         if (my_partner._x == my_house._x && my_partner._y == my_house._y)
                         {
                             _ticksToNextReproduction = _appearanceRate;
-                            if (_female == true)
+                            if (_gender == true)
                             {
                                 GetNewChild();
                             }
@@ -476,9 +476,9 @@ namespace New_new
         {
             PartnerSearchCell();
 
-            if (FindPartner(_x, _y, _female) != null)
+            if (FindPartner(_x, _y, _gender) != null)
             {
-                my_partner = (Human)FindPartner(_x, _y, _female);
+                my_partner = (Human)FindPartner(_x, _y, _gender);
                 my_partner.my_partner = this;
                 if(my_partner.my_house != null)
                 {
@@ -489,7 +489,7 @@ namespace New_new
                     my_partner.my_house = my_house;
                 }
             }
-            else if (FindPartner(_point_partner.X, _point_partner.Y, _female) != null)
+            else if (FindPartner(_point_partner.X, _point_partner.Y, _gender) != null)
             {
                 WalkLog(_point_partner.X, _point_partner.Y);
             }
@@ -516,7 +516,7 @@ namespace New_new
         {
             var _list_human = _map._createdAnimals.OfType<Human>();
 
-            return _list_human.FirstOrDefault(p => p._x == x && p._y == y && p._female != female &&
+            return _list_human.FirstOrDefault(p => p._x == x && p._y == y && p._gender != female &&
             p._ticksToNextReproduction <= 0 && p is Human && p.my_partner == null); 
         }
 
