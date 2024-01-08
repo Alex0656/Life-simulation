@@ -48,13 +48,9 @@ namespace New_new
         }
         protected abstract void GetNewChild();
         protected abstract Animal FindPartner(int x, int y, bool female);
-        protected void PartnerSearchCell()
-        {
-            List<Point> free_cell = new List<Point>();
-            Point point = new Point(_x, _y);
-            free_cell.Add(point);
 
-            int[,] matrix = new int[cols + 1, row + 1];
+        private void CreateZeroMatrix(int[,] matrix, int cols, int row)
+        {
             for (int i = 0; i < cols; i++)
             {
                 for (int j = 0; j < row; j++)
@@ -62,7 +58,15 @@ namespace New_new
                     matrix[i, j] = 0;
                 }
             }
+        }
+        protected void PartnerSearchCell()
+        {
+            List<Point> free_cell = new List<Point>();
+            Point point = new Point(_x, _y);
+            free_cell.Add(point);
 
+            int[,] matrix = new int[cols + 1, row + 1];
+            CreateZeroMatrix(matrix, cols, row);
             matrix[_x, _y] = 1;
 
             while (free_cell.Count != 0)
