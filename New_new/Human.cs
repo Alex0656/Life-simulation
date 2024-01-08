@@ -518,17 +518,13 @@ namespace New_new
             if (value == 0)
             {
                 my_child = new Human(_x, _y, true, _map, true);
-                my_child.house_my_parants = my_house;
-                _map._createdAnimals.Add(my_child);
             }
             else
             {
                 my_child = new Human(_x, _y, false, _map, true);
-                my_child.house_my_parants = my_house;
-                _map._createdAnimals.Add(my_child);
-
-                //_map._createdAnimals.Add(new Human(_x, _y, false, _map, true));
             }
+            my_child.house_my_parants = my_house;
+            _map._createdAnimals.Add(my_child);
         }
         protected override Animal FindPartner(int x, int y, bool female)
         {
