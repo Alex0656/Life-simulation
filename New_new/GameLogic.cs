@@ -27,7 +27,6 @@ namespace New_new
         private int _season_time = 50;
         private int _update_season = 50;
         public bool _summer = true;
-        //private bool winter = false;
 
         private void IsVilage()
         {
@@ -161,16 +160,6 @@ namespace New_new
             }
             _map._createdAnimals = _map._createdAnimals.Where(animal => !animal.death).ToList();
             IsVilage();
-
-            /*
-            foreach (Mine mine in _map._createdMines.ToList())
-            {
-                mine.Update();
-            }
-            _map._createdMines = _map._createdMines.Where(mine => !mine.death).ToList();
-            */
-
-
         }
         public void Update_map()
         {
