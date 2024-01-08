@@ -143,7 +143,7 @@ namespace New_new
                 }
             }
         }
-        public virtual void Update()
+        public virtual void UpdateEveryTimerTick()
         {
             if (stage == 3)
             {

@@ -56,7 +56,7 @@ namespace New_new
                 }
             }
         }
-        public override void Update()
+        public override void UpdateEveryTimerTick()
         {
             _lifetime++;
             if (_lifetime == limit_life)

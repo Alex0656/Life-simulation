@@ -61,7 +61,7 @@ namespace New_new
                 }
             }
         }
-        public override void Update()
+        public override void UpdateEveryTimerTick()
         {
             if (stage == 3)
             {

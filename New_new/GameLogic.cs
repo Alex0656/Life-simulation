@@ -144,7 +144,7 @@ namespace New_new
 
             foreach (Plant plant in _map._createdPlants.ToList())
             {
-                plant.Update();
+                plant.UpdateEveryTimerTick();
             }
             _map._createdPlants = _map._createdPlants.Where(plant => !plant.death).ToList();
 
