@@ -32,54 +32,12 @@ namespace New_new
 
         private void Create_map()
         {
-            /*
-            var build = new House(2, 2);
-            _createdBuilding.Add(build);
-
-            var build1 = new House(2, 1);
-            _createdBuilding.Add(build1);
-
-            var build2 = new House(1, 2);
-            _createdBuilding.Add(build2);
-
-            var build3 = new House(2, 3);
-            _createdBuilding.Add(build3);
-
-            var build4 = new House(3, 2);
-            _createdBuilding.Add(build4);
-            
-            
-         var plant1 = new PlantInedibleWichFruitsNoPoison(44, 44, this);
-         _createdPlants.Add(plant1);
-          //var killedAnimal = new KilledAnimal(30, 30, this);
-          //_createdKilledAnimals.Add(killedAnimal);
-
-          //var deer = new Deer(1, 1, true, this);
-          //_createdAnimals.Add(deer);
-
-          var human = new Human(1, 1, true, this, false);
-           _createdAnimals.Add(human);
-          var human1 = new Human(2, 2, false, this, false);
-          _createdAnimals.Add(human1);
-
-
-          var bunny = new Bunny(10, 10, true, this, false);
-          _createdAnimals.Add(bunny);
-
-          //var build = new House(15, 15);
-          //_createdBuilding.Add(build);
-
-          var plant = new PlantEdibleWichFruitsNoPoison(30, 30, this);
-          _createdPlants.Add(plant);
-            */
-            
           field = new bool[_cols + 1, _row + 1];
           for (int x = 0; x < _cols; x++)
           {
               for (int y = 0; y < _row; y++)
               {
                   int value_2 = GameLogic.Random(0, _density);
-                  //field[x, y] = random.Next(_density) == 0;
                   field[x, y] = value_2 == 0;
                   if (field[x, y] == true)
                   {
@@ -204,21 +162,6 @@ namespace New_new
         public void Create_new_map()
         {
             Create_map();
-            /*
-            if (temp == 1)
-            {
-                Mine<Gold>(1000, x, y);
-            }
-            if (temp == 2)
-            {
-                Mine<Iron>(1000, x, y);
-            }
-            if (temp == 3)
-            {
-                Mine<Stone>(1000, x, y);
-            }
-
-            */
         }
     }       
 }
