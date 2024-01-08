@@ -76,10 +76,6 @@ namespace New_new
                 var killed_animal = new KilledAnimal(_x, _y, _map);
                 _map._createdKilledAnimals.Add(killed_animal);
             }
-            //else if (_point_eat.X == 0 && _point_eat.Y == 0)
-            //{
-            //    Walk();
-            //}
             else
             {
                 if (_point_eat.X < _x)
