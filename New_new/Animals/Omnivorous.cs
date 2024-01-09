@@ -36,7 +36,72 @@ namespace LifeSimulation
         {
             return _map._createdKilledAnimals.FirstOrDefault(h => h._x == x && h._y == y);
         }
+        protected void WalkOmnivorous(int x, int y)
+        {
+            if (x > _x && y < _y && flag1 == true)
+            {
+                _x++;
+                flag1 = false;
+            }
+            else if (x > _x && y < _y && flag1 == false)
+            {
+                _y--;
+                flag1 = true;
+            }
 
+            else if (x < _x && y < _y && flag1 == true)
+            {
+                _x--;
+                flag1 = false;
+            }
+            else if (x < _x && y < _y && flag1 == false)
+            {
+                _y--;
+                flag1 = true;
+            }
+
+            else if (x < _x && y > _y && flag1 == true)
+            {
+                _x--;
+                flag1 = false;
+            }
+            else if (x < _x && y > _y && flag1 == false)
+            {
+                _y++;
+                flag1 = true;
+            }
+
+            else if (x > _x && y > _y && flag1 == true)
+            {
+                _x++;
+                flag1 = false;
+            }
+            else if (x > _x && y > _y && flag1 == false)
+            {
+                _y++;
+                flag1 = true;
+            }
+        }
+
+        protected void GeneratingRandomValue(int _value)
+        {
+            if ((_value == 1) && (_x < cols))
+            {
+                _x = _x + 1;
+            }
+            else if ((_value == 2) && (_y < row))
+            {
+                _y = _y + 1;
+            }
+            else if ((_value == 3) && (_x > 0))
+            {
+                _x = _x - 1;
+            }
+            else if ((_value == 4) && (_y > 0))
+            {
+                _y = _y - 1;
+            }
+        }
 
         protected override void FoodWalk() 
         {
