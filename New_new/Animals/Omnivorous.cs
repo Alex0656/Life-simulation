@@ -68,66 +68,7 @@ namespace LifeSimulation
             }
             else
             {
-                if (_point_eat.Y == _y && _x < _point_eat.X)
-                {
-                    _x++;
-                }
-                else if (_point_eat.Y == _y && _x > _point_eat.X)
-                {
-                    _x--;
-                }
-                else if (_point_eat.X == _x && _y > _point_eat.Y)
-                {
-                    _y--;
-                }
-                else if (_point_eat.X == _x && _y < _point_eat.Y)
-                {
-                    _y++;
-                }
-
-                else if (_point_eat.X > _x && _point_eat.Y < _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_eat.X > _x && _point_eat.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_eat.X < _x && _point_eat.Y < _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_eat.X < _x && _point_eat.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_eat.X < _x && _point_eat.Y > _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_eat.X < _x && _point_eat.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
-
-                else if (_point_eat.X > _x && _point_eat.Y > _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_eat.X > _x && _point_eat.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
+                WalkAnimalDefault(_point_eat.X, _point_eat.Y);
             }
         }
     }

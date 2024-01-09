@@ -118,6 +118,70 @@ namespace LifeSimulation
                 GetNewChild();
             }
         }
+
+        protected void WalkAnimalDefault(int x, int y)
+        {
+            if (y == _y && _x < x)
+            {
+                _x++;
+            }
+            else if (y == _y && _x > x)
+            {
+                _x--;
+            }
+            else if (x == _x && _y > y)
+            {
+                _y--;
+            }
+            else if (x == _x && _y < y)
+            {
+                _y++;
+            }
+
+            else if (x > _x && y < _y && flag1 == true)
+            {
+                _x++;
+                flag1 = false;
+            }
+            else if (x > _x && y < _y && flag1 == false)
+            {
+                _y--;
+                flag1 = true;
+            }
+
+            else if (x < _x && y < _y && flag1 == true)
+            {
+                _x--;
+                flag1 = false;
+            }
+            else if (x < _x && y < _y && flag1 == false)
+            {
+                _y--;
+                flag1 = true;
+            }
+
+            else if (x < _x && y > _y && flag1 == true)
+            {
+                _x--;
+                flag1 = false;
+            }
+            else if (x < _x && y > _y && flag1 == false)
+            {
+                _y++;
+                flag1 = true;
+            }
+
+            else if (x > _x && y > _y && flag1 == true)
+            {
+                _x++;
+                flag1 = false;
+            }
+            else if (x > _x && y > _y && flag1 == false)
+            {
+                _y++;
+                flag1 = true;
+            }
+        }
         protected virtual void PartnerSearch()
         {
             PartnerSearchCell();
@@ -128,66 +192,7 @@ namespace LifeSimulation
             }
             else if (FindPartner(_point_partner.X, _point_partner.Y, _gender) != null)
             {
-                if (_point_partner.Y == _y && _x < _point_partner.X)
-                {
-                    _x++;
-                }
-                else if (_point_partner.Y == _y && _x > _point_partner.X)
-                {
-                    _x--;
-                }
-                else if (_point_partner.X == _x && _y > _point_partner.Y)
-                {
-                    _y--;
-                }
-                else if (_point_partner.X == _x && _y < _point_partner.Y)
-                {
-                    _y++;
-                }
-
-                else if (_point_partner.X > _x && _point_partner.Y < _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_partner.X > _x && _point_partner.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_partner.X < _x && _point_partner.Y < _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_partner.X < _x && _point_partner.Y < _y && flag1 == false)
-                {
-                    _y--;
-                    flag1 = true;
-                }
-
-                else if (_point_partner.X < _x && _point_partner.Y > _y && flag1 == true)
-                {
-                    _x--;
-                    flag1 = false;
-                }
-                else if (_point_partner.X < _x && _point_partner.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
-
-                else if (_point_partner.X > _x && _point_partner.Y > _y && flag1 == true)
-                {
-                    _x++;
-                    flag1 = false;
-                }
-                else if (_point_partner.X > _x && _point_partner.Y > _y && flag1 == false)
-                {
-                    _y++;
-                    flag1 = true;
-                }
+                WalkAnimalDefault(_point_partner.X, _point_partner.Y);
             }
             else
             {
