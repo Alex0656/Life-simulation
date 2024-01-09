@@ -8,7 +8,6 @@ namespace LifeSimulation
 {
     public class Inventory
     {
-        public List<Resources> MyResources = new List<Resources>();
         public int _meat { get; set; } = 0;
         public int _fruit { get; set; } = 0;
         public int _plant { get; set; } = 0;
