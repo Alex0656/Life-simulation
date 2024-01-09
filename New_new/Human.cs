@@ -12,7 +12,6 @@ namespace LifeSimulation
         private Human my_partner;
         private House my_house;
         public House house_my_parants;
-        private Profession profession;
         public Childhood childhood;
         private Human my_child;
         private Inventory inventory = new Inventory();
