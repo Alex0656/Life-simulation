@@ -9,6 +9,7 @@ namespace LifeSimulation
 {
     public class Childhood : Human
     {
+        const int voracity = 5;
         private int time = 0;
         private int ticks_growing = 50;
         public Childhood(int x, int y, bool gender_female, Map map, bool child)
@@ -60,7 +61,7 @@ namespace LifeSimulation
             }
             else if (_foodscale <= foodwalk_scale)
             {
-                _foodscale = _foodscale - 5;
+                _foodscale = _foodscale - voracity;
                 if (FindHouse(_x, _y) != null)
                 {
                     Food food = new Food(_foodscale);
@@ -73,7 +74,7 @@ namespace LifeSimulation
             }
             else if (_foodscale <= walk_scale)
             {
-                _foodscale = _foodscale - 5;
+                _foodscale = _foodscale - voracity;
                 Walk();
             }
         }
