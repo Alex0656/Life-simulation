@@ -22,6 +22,8 @@ namespace LifeSimulation
         protected int _appearanceRateStage;
         protected int _ticksToNextFruit;
         protected int _appearanceFruit;
+        protected bool poison_fruit = true;
+        protected bool no_poison_fruit = false;
 
         protected int _appearanceRate;
         protected int _ticksToNextSpread;
@@ -63,54 +65,17 @@ namespace LifeSimulation
             }
         }
 
-
-
-
-        protected void SpreadFruitPoison()
+        protected void SpreadFruit (bool condition_of_fruit)
         {
             int value = GameLogic.GenerateNumber(1, 4);
             if ((value == 1) && (_x < cols))
             {
-                if (!IsFreeCellFruit(_x + 1, _y))
+                if ((!IsFreeCellFruit(_x + 1, _y)) && (condition_of_fruit == true))
                 {
                     var fruit = new FruitPoison(_x + 1, _y, _map);
                     _map._createdPlants.Add(fruit);
                 }
-            }
-            else if ((value == 2) && (_y < row))
-            {
-                if (!IsFreeCellFruit(_x, _y + 1))
-                {
-                    var fruit = new FruitPoison(_x, _y + 1, _map);
-                    _map._createdPlants.Add(fruit);
-                }
-
-            }
-            else if ((value == 3) && (_x > 0))
-            {
-                if (!IsFreeCellFruit(_x - 1, _y))
-                {
-                    var fruit = new FruitPoison(_x - 1, _y, _map);
-                    _map._createdPlants.Add(fruit);
-                }
-
-            }
-            else if ((value == 4) && (_y > 0))
-            {
-                if (!IsFreeCellFruit(_x, _y - 1))
-                {
-                    var fruit = new FruitPoison(_x, _y - 1, _map);
-                    _map._createdPlants.Add(fruit);
-                }
-            }
-        }
-        protected void SpreadFruitNoPoison()
-        {
-
-            int value = GameLogic.GenerateNumber(1, 4);
-            if ((value == 1) && (_x < cols))
-            {
-                if (!IsFreeCellFruit(_x + 1, _y))
+                else if ((!IsFreeCellFruit(_x + 1, _y)) && (condition_of_fruit == false))
                 {
                     var fruit = new Fruit(_x + 1, _y, _map);
                     _map._createdPlants.Add(fruit);
@@ -118,31 +83,45 @@ namespace LifeSimulation
             }
             else if ((value == 2) && (_y < row))
             {
-                if (!IsFreeCellFruit(_x, _y + 1))
+                if ((!IsFreeCellFruit(_x, _y + 1)) && (condition_of_fruit == true))
+                {
+                    var fruit = new FruitPoison(_x, _y + 1, _map);
+                    _map._createdPlants.Add(fruit);
+                }
+                else if ((!IsFreeCellFruit(_x, _y + 1)) && (condition_of_fruit == false))
                 {
                     var fruit = new Fruit(_x, _y + 1, _map);
                     _map._createdPlants.Add(fruit);
                 }
-
             }
             else if ((value == 3) && (_x > 0))
             {
-                if (!IsFreeCellFruit(_x - 1, _y))
+                if ((!IsFreeCellFruit(_x - 1, _y)) && (condition_of_fruit == true))
+                {
+                    var fruit = new FruitPoison(_x - 1, _y, _map);
+                    _map._createdPlants.Add(fruit);
+                }
+                else if ((!IsFreeCellFruit(_x - 1, _y)) && (condition_of_fruit == false))
                 {
                     var fruit = new Fruit(_x - 1, _y, _map);
                     _map._createdPlants.Add(fruit);
                 }
-
             }
             else if ((value == 4) && (_y > 0))
             {
-                if (!IsFreeCellFruit(_x, _y - 1))
+                if ((!IsFreeCellFruit(_x, _y - 1)) && (condition_of_fruit == true))
+                {
+                    var fruit = new FruitPoison(_x, _y - 1, _map);
+                    _map._createdPlants.Add(fruit);
+                }
+                else if ((!IsFreeCellFruit(_x, _y - 1)) && (condition_of_fruit == false))
                 {
                     var fruit = new Fruit(_x, _y - 1, _map);
                     _map._createdPlants.Add(fruit);
                 }
             }
         }
+
         public virtual void UpdateEveryTimerTick()
         {
             if (stage == 3)

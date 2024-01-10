@@ -70,7 +70,8 @@ namespace LifeSimulation
 
                 if (_ticksToNextFruit == 0)
                 {
-                    SpreadFruitPoison();
+                    SpreadFruit(poison_fruit);
+                    //SpreadFruitPoison();
                     _ticksToNextFruit = _appearanceFruit;
                 }
                 if (_ticksToNextSpread == 0)
