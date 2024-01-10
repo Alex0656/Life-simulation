@@ -192,7 +192,9 @@ namespace LifeSimulation
             {
                 if(flag_child == false)
                 {
-                    childhood = new Childhood(this);
+                    //childhood = new Childhood(this);
+                    childhood = new Childhood(_x, _y, true, _map, true);
+                    _map._createdAnimals.Add(childhood);
                     flag_child = true;
                 }
                 

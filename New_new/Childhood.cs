@@ -7,47 +7,32 @@ using System.Threading.Tasks;
 
 namespace LifeSimulation
 {
-    public class Childhood
+    public class Childhood : Human
     {
         private int time = 0;
         private int ticks_growing = 50;
-        private Human _human;
-        public Childhood(Human human)
+        public Childhood(int x, int y, bool gender_female, Map map, bool child)
+            : base(x, y, gender_female, map, child)
         {
-            _human = human;
-        }
-
-        protected void Walk()
-        {
-            int value = GameLogic.GenerateNumber(0, 4);
-            if ((value == 1) && (_human._x < _human.cols))
-            {
-                _human._x = _human._x + 1;
-            }
-            else if ((value == 2) && (_human._y < _human.row))
-            {
-                _human._y = _human._y + 1;
-            }
-            else if ((value == 3) && (_human._x > 0))
-            {
-                _human._x = _human._x - 1;
-            }
-            else if ((value == 4) && (_human._y > 0))
-            {
-                _human._y = _human._y - 1;
-            }
+            _hp = 100;
+            _foodscale = 200;
+            foodwalk_scale = 100;
+            walk_scale = 200;
+            limit_life = 6000;
+            _appearanceRate = 50;
+            _ticksToNextReproduction = 50; ;
         }
         public bool Check()
         {
             if (time >= ticks_growing)
             {
-                if (_human._gender_female)
+                if (_gender_female)
                 {
-                    _human.Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human_2.png");
+                    Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human_2.png");
                 }
-                else if (!_human._gender_female)
+                else if (!_gender_female)
                 {
-                    _human.Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human.png");
+                    Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human.png");
                 }
                 // profession.GetProfession();
                 return true;
@@ -60,35 +45,35 @@ namespace LifeSimulation
         private void Growing_log()
         {
             time++;
-            if (_human._foodscale <= 0)
+            if (_foodscale <= 0)
             {
-                _human._hp--;
-                if (_human.FindHouse(_human._x, _human._y) != null)
+                _hp--;
+                if (FindHouse(_x, _y) != null)
                 {
-                    Food food = new Food(_human._foodscale);
-                    _human._foodscale = food.Replenish_plant();
+                    Food food = new Food(_foodscale);
+                    _foodscale = food.Replenish_plant();
                 }
                 else
                 {
-                    _human.WalkAnimalDefault(_human.house_my_parants._x, _human.house_my_parants._y);
+                    WalkAnimalDefault(house_my_parants._x, house_my_parants._y);
                 }
             }
-            else if (_human._foodscale <= _human.foodwalk_scale)
+            else if (_foodscale <= foodwalk_scale)
             {
-                _human._foodscale = _human._foodscale - 5;
-                if (_human.FindHouse(_human._x, _human._y) != null)
+                _foodscale = _foodscale - 5;
+                if (FindHouse(_x, _y) != null)
                 {
-                    Food food = new Food(_human._foodscale);
-                    _human._foodscale = food.Replenish_plant();
+                    Food food = new Food(_foodscale);
+                    _foodscale = food.Replenish_plant();
                 }
                 else
                 {
-                    _human.WalkAnimalDefault(_human.house_my_parants._x, _human.house_my_parants._y);
+                    WalkAnimalDefault(house_my_parants._x, house_my_parants._y);
                 }
             }
-            else if (_human._foodscale <= _human.walk_scale)
+            else if (_foodscale <= walk_scale)
             {
-                _human._foodscale = _human._foodscale - 5;
+                _foodscale = _foodscale - 5;
                 Walk();
             }
         }
