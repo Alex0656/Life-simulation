@@ -25,9 +25,7 @@ namespace LifeSimulation
             if (IsFreeCell(_point_eat.X, _point_eat.Y) == false)
             {
                 Search(eat);
-                //FoodSearch();
             }
-
             int value = GameLogic.GenerateNumber(1, 6);
             if ((value == 1) && (_x < cols))
             {
@@ -101,15 +99,12 @@ namespace LifeSimulation
             {
                 Search(eat);
             }
-
-
-
-            var temp_plant = CellPlant(_x, _y);
-            if (temp_plant != null)
+            var edible_plant = CellPlant(_x, _y);
+            if (edible_plant != null)
             {
                 Food food = new Food(_foodscale);
                 _foodscale = food.Replenish_plant();
-                temp_plant.death = true;
+                edible_plant.death = true;
             }
 
             else if (_point_eat.X == _x && _point_eat.Y < _y)
