@@ -150,13 +150,13 @@ namespace LifeSimulation
 
             foreach (KilledAnimal killed_animal in _map._createdKilledAnimals.ToList())
             {
-                killed_animal.Update();
+                killed_animal.UpdateEveryTimerTick();
             }
             _map._createdKilledAnimals = _map._createdKilledAnimals.Where(killed_animal => !killed_animal.death).ToList();
 
             foreach (Animal animal in _map._createdAnimals.ToList())
             {
-                animal.Update();
+                animal.UpdateEveryTimerTick();
             }
             _map._createdAnimals = _map._createdAnimals.Where(animal => !animal.death).ToList();
             IsVilage();

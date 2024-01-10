@@ -257,7 +257,7 @@ namespace LifeSimulation
         {
             death = true;
         }
-        public virtual void Update()
+        public virtual void UpdateEveryTimerTick()
         {
             _lifetime++;
             _ticksToNextReproduction--;

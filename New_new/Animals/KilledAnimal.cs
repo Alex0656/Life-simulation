@@ -35,7 +35,7 @@ namespace LifeSimulation
         {
             death = true;
         }
-        public void Update()
+        public void UpdateEveryTimerTick()
         {
             _lifetime++;
             if (TimeToDie())

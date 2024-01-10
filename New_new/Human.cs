@@ -184,7 +184,7 @@ namespace LifeSimulation
                 inventory._meat--;
             }
         }
-        public override void Update()
+        public override void UpdateEveryTimerTick()
         {
             _lifetime++;
             _ticksToNextReproduction--;
