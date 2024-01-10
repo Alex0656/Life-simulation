@@ -70,7 +70,7 @@ namespace LifeSimulation
                 }
                 else
                 {
-                    _human.WalkLog(_human.house_my_parants._x, _human.house_my_parants._y);
+                    _human.WalkAnimalDefault(_human.house_my_parants._x, _human.house_my_parants._y);
                 }
             }
             else if (_human._foodscale <= _human.foodwalk_scale)
@@ -83,7 +83,7 @@ namespace LifeSimulation
                 }
                 else
                 {
-                    _human.WalkLog(_human.house_my_parants._x, _human.house_my_parants._y);
+                    _human.WalkAnimalDefault(_human.house_my_parants._x, _human.house_my_parants._y);
                 }
             }
             else if (_human._foodscale <= _human.walk_scale)

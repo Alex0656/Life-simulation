@@ -119,7 +119,7 @@ namespace LifeSimulation
             }
         }
 
-        protected void WalkAnimalDefault(int x, int y)
+        public void WalkAnimalDefault(int x, int y)
         {
             if (y == _y && _x < x)
             {

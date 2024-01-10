@@ -103,7 +103,7 @@ namespace LifeSimulation
             }
             else
             {
-                WalkLog(_point_eat.X, _point_eat.Y);
+                WalkAnimalDefault(_point_eat.X, _point_eat.Y);
             }
         }
         protected void FoodExtraction()
@@ -141,7 +141,7 @@ namespace LifeSimulation
             }
             else
             {
-                WalkLog(_point_eat.X, _point_eat.Y);
+                WalkAnimalDefault (_point_eat.X, _point_eat.Y);
             }
         }
         protected override void Walk()
@@ -182,69 +182,6 @@ namespace LifeSimulation
             {
                 _foodscale = food.Replenish_maet();
                 inventory._meat--;
-            }
-        }
-        public void WalkLog(int x, int y)
-        {
-            if (y == _y && _x < x)
-            {
-                _x++;
-            }
-            else if (y == _y && _x > x)
-            {
-                _x--;
-            }
-            else if (x == _x && _y > y)
-            {
-                _y--;
-            }
-            else if (x == _x && _y < y)
-            {
-                _y++;
-            }
-
-            else if (x > _x && y < _y && flag1 == true)
-            {
-                _x++;
-                flag1 = false;
-            }
-            else if (x > _x && y < _y && flag1 == false)
-            {
-                _y--;
-                flag1 = true;
-            }
-
-            else if (x < _x && y < _y && flag1 == true)
-            {
-                _x--;
-                flag1 = false;
-            }
-            else if (x < _x && y < _y && flag1 == false)
-            {
-                _y--;
-                flag1 = true;
-            }
-
-            else if (x < _x && y > _y && flag1 == true)
-            {
-                _x--;
-                flag1 = false;
-            }
-            else if (x < _x && y > _y && flag1 == false)
-            {
-                _y++;
-                flag1 = true;
-            }
-
-            else if (x > _x && y > _y && flag1 == true)
-            {
-                _x++;
-                flag1 = false;
-            }
-            else if (x > _x && y > _y && flag1 == false)
-            {
-                _y++;
-                flag1 = true;
             }
         }
         public override void Update()
@@ -407,7 +344,7 @@ namespace LifeSimulation
             }
             else if (CheckDistance(_x, _y) <= _normal_distance)
             {
-                WalkLog(_my_neighbor.X, _my_neighbor.Y);
+                WalkAnimalDefault(_my_neighbor.X, _my_neighbor.Y);
             }
             else if (FindHouse(_x, _y) == null)
             {
@@ -429,7 +366,7 @@ namespace LifeSimulation
                     }
                     else
                     {
-                        WalkLog(my_partner._x, my_partner._y);
+                        WalkAnimalDefault(my_partner._x, my_partner._y);
                     }
                 }
                 else
@@ -454,7 +391,7 @@ namespace LifeSimulation
                     }
                     else
                     {
-                        WalkLog(my_house._x, my_house._y);
+                        WalkAnimalDefault(my_house._x, my_house._y);
                     }
                 }
                 else
@@ -486,7 +423,7 @@ namespace LifeSimulation
             }
             else if (FindPartner(_point_partner.X, _point_partner.Y, _gender) != null)
             {
-                WalkLog(_point_partner.X, _point_partner.Y);
+                WalkAnimalDefault(_point_partner.X, _point_partner.Y);
             }
             else
             {
