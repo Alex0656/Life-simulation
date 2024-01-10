@@ -41,7 +41,7 @@ namespace LifeSimulation
         }
         private void CheckDistance(int _x, int _y)
         {
-            List<House> house = new List<House>();
+            List<House> list_house = new List<House>();
             List<Point> free_cell = new List<Point>();
             Point point = new Point(_x, _y);
             free_cell.Add(point);
@@ -66,8 +66,8 @@ namespace LifeSimulation
                 
                 if (FindHouse(x1, y1) != null)
                 {
-                    var temp = FindHouse(x1, y1);
-                    house.Add(temp);
+                    var new_house = FindHouse(x1, y1);
+                    list_house.Add(new_house);
                 }
 
                 if ((x1 < cols) && (matrix[x1 + 1, y1] == 0) && count <= max_radius)
@@ -96,23 +96,23 @@ namespace LifeSimulation
                 }
                 count++;
             }
-            if(house.Count >= vilage_value)
+            if(list_house.Count >= vilage_value)
             {
                 Village village = new Village();
-                foreach (House temp_house in house)
+                foreach (House house in list_house)
                 {
-                    temp_house.village = village;
+                    house.village = village;
                 }
             }
             else
             {
-                foreach (House temp_house in house)
+                foreach (House house in list_house)
                 {
-                    if(temp_house.village != null)
+                    if(house.village != null)
                     {
-                        foreach (House temp_house2 in house)
+                        foreach (House house2 in list_house)
                         {
-                            temp_house2.village = temp_house.village;
+                            house2.village = house.village;
                         }
                     }
                     
@@ -125,15 +125,7 @@ namespace LifeSimulation
             return _list_house.FirstOrDefault(p => p._x == x && p._y == y && p is House);
         }
 
-
-
-
-
-
-
-
-
-        private void Update()
+        private void UpdateEveryTimerTick()
         {
             _season_time--;
             if (_season_time == 0)
@@ -163,12 +155,7 @@ namespace LifeSimulation
         }
         public void Update_map()
         {
-            Update();
-        }
-
-        public static void SeasonSelection()
-        {
-
+            UpdateEveryTimerTick();
         }
 
         public static int GenerateNumber(int x, int y)
