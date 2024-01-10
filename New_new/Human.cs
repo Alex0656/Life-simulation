@@ -68,7 +68,7 @@ namespace LifeSimulation
         {
             if (IsFreeCell(_point_eat.X, _point_eat.Y) == false)
             {
-                FoodSearch();
+                Search(eat);
             }
             var fruit = CellFruit(_x, _y);
             var plant = CellPlant(_x, _y);
@@ -110,7 +110,7 @@ namespace LifeSimulation
         {
             if (IsFreeCell(_point_eat.X, _point_eat.Y) == false)
             {
-                FoodSearch();
+                Search(eat);
             }
             var fruit = CellFruit(_x, _y);
             var plant = CellPlant(_x, _y);
@@ -397,7 +397,7 @@ namespace LifeSimulation
         }
         protected override void PartnerSearch()
         {
-            PartnerSearchCell();
+            Search(partner);
 
             if (FindPartner(_x, _y, _gender_female) != null)
             {

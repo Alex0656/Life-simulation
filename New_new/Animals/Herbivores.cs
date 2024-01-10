@@ -24,7 +24,8 @@ namespace LifeSimulation
         {
             if (IsFreeCell(_point_eat.X, _point_eat.Y) == false)
             {
-                FoodSearch();
+                Search(eat);
+                //FoodSearch();
             }
 
             int value = GameLogic.GenerateNumber(1, 6);
@@ -98,7 +99,7 @@ namespace LifeSimulation
         {
             if (IsFreeCell(_point_eat.X, _point_eat.Y) == false)
             {
-                FoodSearch();
+                Search(eat);
             }
 
 

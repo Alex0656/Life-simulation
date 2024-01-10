@@ -57,7 +57,7 @@ namespace LifeSimulation
         {
             if (IsFreeCell(_point_eat.X, _point_eat.Y) == false)
             {
-                FoodSearch();
+                Search(eat);
             }
 
             var maet = CellKilledAnimal(_x, _y);

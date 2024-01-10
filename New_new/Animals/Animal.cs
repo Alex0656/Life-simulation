@@ -20,6 +20,8 @@ namespace LifeSimulation
         protected int _lifetime = 0;
         public int _hp = 20;
         protected bool flag1 = true;
+        protected bool partner = true;
+        protected bool eat = false;
 
         public int foodwalk_scale = 70;
         public int walk_scale = 120;
@@ -48,7 +50,6 @@ namespace LifeSimulation
         }
         protected abstract void GetNewChild();
         protected abstract Animal FindPartner(int x, int y, bool female);
-
         private void CreateZeroMatrix(int[,] matrix, int cols, int row)
         {
             for (int i = 0; i < cols; i++)
@@ -59,7 +60,9 @@ namespace LifeSimulation
                 }
             }
         }
-        protected void PartnerSearchCell()
+
+
+        protected void Search (bool partner)
         {
             List<Point> free_cell = new List<Point>();
             Point point = new Point(_x, _y);
@@ -75,13 +78,25 @@ namespace LifeSimulation
                 int y1 = free_cell[0].Y;
                 free_cell.RemoveAt(0);
 
-
-                if (FindPartner(x1, y1, _gender_female) != null)
+                if (partner == true)
                 {
-                    _point_partner.X = x1;
-                    _point_partner.Y = y1;
-                    break;
+                    if (FindPartner(x1, y1, _gender_female) != null)
+                    {
+                        _point_partner.X = x1;
+                        _point_partner.Y = y1;
+                        break;
+                    }   
                 }
+                else
+                {
+                    if (IsFreeCell(x1, y1))
+                    {
+                        _point_eat.X = x1;
+                        _point_eat.Y = y1;
+                        break;
+                    }
+                }
+                
                 if ((x1 < cols) && (matrix[x1 + 1, y1] == 0))
                 {
                     Point new_point = new Point(x1 + 1, y1);
@@ -107,7 +122,6 @@ namespace LifeSimulation
                     matrix[x1, y1 - 1] = 1;
                 }
             }
-
         }
         protected virtual void Reproduction()
         {
@@ -184,7 +198,7 @@ namespace LifeSimulation
         }
         protected virtual void PartnerSearch()
         {
-            PartnerSearchCell();
+            Search(partner);
 
             if (FindPartner(_x, _y, _gender_female) != null)
             {
@@ -201,57 +215,7 @@ namespace LifeSimulation
         }
         protected abstract void Walk();
         protected abstract Boolean IsFreeCell(int x, int y);
-        protected void FoodSearch()
-        {
-
-            List<Point> free_cell = new List<Point>();
-            Point point = new Point(_x, _y);
-            free_cell.Add(point);
-
-            int[,] matrix = new int[cols + 1, row + 1];
-            CreateZeroMatrix(matrix, cols, row);
-            matrix[_x, _y] = 1;
-
-            while (free_cell.Count != 0)
-            {
-                int x1 = free_cell[0].X;
-                int y1 = free_cell[0].Y;
-                free_cell.RemoveAt(0);
-
-
-                if (IsFreeCell(x1, y1))
-                {
-                    _point_eat.X = x1;
-                    _point_eat.Y = y1;
-                    break;
-                }
-                if ((x1 < cols) && (matrix[x1 + 1, y1] == 0))
-                {
-                    Point new_point = new Point(x1 + 1, y1);
-                    free_cell.Add(new_point);
-                    matrix[x1 + 1, y1] = 1;
-                }
-                if ((y1 < row) && (matrix[x1, y1 + 1] == 0))
-                {
-                    Point new_point = new Point(x1, y1 + 1);
-                    free_cell.Add(new_point);
-                    matrix[x1, y1 + 1] = 1;
-                }
-                if ((x1 > 0) && (matrix[x1 - 1, y1] == 0))
-                {
-                    Point new_point = new Point(x1 - 1, y1);
-                    free_cell.Add(new_point);
-                    matrix[x1 - 1, y1] = 1;
-                }
-                if ((y1 > 0) && (matrix[x1, y1 - 1] == 0))
-                {
-                    Point new_point = new Point(x1, y1 - 1);
-                    free_cell.Add(new_point);
-                    matrix[x1, y1 - 1] = 1;
-                }
-            }
-
-        }
+        
         protected abstract void FoodWalk();
         protected void Die()
         {
