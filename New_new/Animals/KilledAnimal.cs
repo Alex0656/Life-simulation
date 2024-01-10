@@ -39,10 +39,18 @@ namespace LifeSimulation
         public void Update()
         {
             _lifetime++;
-            if ((_lifetime == limit_life) || (_amount_of_meat <= 0))
+            if (TimeToDie())
             {
                 Die();
             }
+        }
+        protected bool TimeToDie()
+        {
+            if ((_lifetime == limit_life) || (_amount_of_meat <= 0))
+            {
+                return true;
+            }
+            else { return false; }
         }
     }
 }
