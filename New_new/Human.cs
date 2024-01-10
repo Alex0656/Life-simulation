@@ -212,10 +212,7 @@ namespace LifeSimulation
                 {
                     EatInventory();
                 }
-                else
-                {
-                    FoodWalk();
-                }
+                FoodWalk();
             }
             else if (_foodscale <= foodwalk_scale)
             {
@@ -224,10 +221,7 @@ namespace LifeSimulation
                 {
                     EatInventory();
                 }
-                else
-                {
-                    FoodWalk();
-                }
+                FoodWalk();
             }
             else if (_foodscale <= walk_scale)
             {
@@ -241,25 +235,31 @@ namespace LifeSimulation
                 {
                     BuildHouse();
                 }
-                else  
+                else if (inventory.CheckForOverflow())
                 {
-                    if (inventory.CheckForOverflow())
-                    {
-                        FoodExtraction();
-                    }
-                    else if (!inventory.CheckForOverflow())
-                    {
-                        Walk();
-                    }
+                    FoodExtraction();
                 }
-                
+                else if (!inventory.CheckForOverflow())
+                {
+                    Walk();
+                }
             }
-            if ((_hp == 0) || (_lifetime == limit_life))
+
+            if (TimeToDie())
             {
                 Die();
             }
         }
 
+        protected bool TimeToDie()
+        {
+            if ((_hp == 0) || (_lifetime == limit_life))
+            {
+                return true;
+            }
+            else { return false; }
+            
+        }
         private int CheckDistance(int _x, int _y)
         {
             List<Point> free_cell = new List<Point>();

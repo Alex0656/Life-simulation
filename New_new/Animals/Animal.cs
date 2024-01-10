@@ -283,10 +283,17 @@ namespace LifeSimulation
                     Walk();
                 }
             }
-            if ((_hp == 0) || (_lifetime == limit_life))
+            if (TimeToDie())
             {
                 Die();
             }
         }
-    }
+        protected bool TimeToDie()
+        {
+            if ((_hp == 0) || (_lifetime == limit_life))
+            {
+                return true;
+            }
+            else { return false; }
+        }
 }
