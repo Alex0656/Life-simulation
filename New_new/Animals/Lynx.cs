@@ -33,7 +33,7 @@ namespace LifeSimulation
         }
         protected override Animal FindPartner(int x, int y, bool female)
         {
-            return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._gender != female &&
+            return _map._createdAnimals.FirstOrDefault(p => p._x == x && p._y == y && p._gender_female != female &&
             p._ticksToNextReproduction <= 0 && p is Lynx);
         }
     }

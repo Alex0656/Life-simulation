@@ -19,18 +19,18 @@ namespace LifeSimulation
         private int _normal_distance = 50;
         private Point _my_neighbor;
         private bool flag_child = false;
-        public Human(int x, int y, bool female, Map map, bool child)
-            : base(x, y, female, map, child)
+        public Human(int x, int y, bool gender_female, Map map, bool child)
+            : base(x, y, gender_female, map, child)
         {
             if (child)
             {
                 Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\child.png");
             }
-            else if (female)
+            else if (gender_female)
             {
                 Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\Human_2.png");
             }
-            else if (!female)
+            else if (!gender_female)
                 Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\Human.png");
 
             _hp = 100;
@@ -231,7 +231,7 @@ namespace LifeSimulation
                 {
                     Reproduction();
                 }
-                else if (my_house == null && !_gender && my_partner != null)
+                else if (my_house == null && !_gender_female && my_partner != null)
                 {
                     BuildHouse();
                 }
@@ -374,7 +374,7 @@ namespace LifeSimulation
                         if (my_partner._x == my_house._x && my_partner._y == my_house._y)
                         {
                             _ticksToNextReproduction = _appearanceRate;
-                            if (_gender == true)
+                            if (_gender_female == true)
                             {
                                 GetNewChild();
                             }
@@ -399,9 +399,9 @@ namespace LifeSimulation
         {
             PartnerSearchCell();
 
-            if (FindPartner(_x, _y, _gender) != null)
+            if (FindPartner(_x, _y, _gender_female) != null)
             {
-                my_partner = (Human)FindPartner(_x, _y, _gender);
+                my_partner = (Human)FindPartner(_x, _y, _gender_female);
                 my_partner.my_partner = this;
                 if(my_partner.my_house != null)
                 {
@@ -412,7 +412,7 @@ namespace LifeSimulation
                     my_partner.my_house = my_house;
                 }
             }
-            else if (FindPartner(_point_partner.X, _point_partner.Y, _gender) != null)
+            else if (FindPartner(_point_partner.X, _point_partner.Y, _gender_female) != null)
             {
                 WalkAnimalDefault(_point_partner.X, _point_partner.Y);
             }
@@ -439,7 +439,7 @@ namespace LifeSimulation
         {
             var _list_human = _map._createdAnimals.OfType<Human>();
 
-            return _list_human.FirstOrDefault(p => p._x == x && p._y == y && p._gender != female &&
+            return _list_human.FirstOrDefault(p => p._x == x && p._y == y && p._gender_female != female &&
             p._ticksToNextReproduction <= 0 && p is Human && p.my_partner == null); 
         }
 

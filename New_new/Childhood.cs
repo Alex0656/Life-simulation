@@ -41,11 +41,11 @@ namespace LifeSimulation
         {
             if (time >= ticks_growing)
             {
-                if (_human._gender)
+                if (_human._gender_female)
                 {
                     _human.Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human_2.png");
                 }
-                else if (!_human._gender)
+                else if (!_human._gender_female)
                 {
                     _human.Image = Image.FromFile(@"C:\Users\wayww\source\repos\New_new\New_new\img\Human.png");
                 }

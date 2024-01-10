@@ -31,16 +31,16 @@ namespace LifeSimulation
 
 
         protected Point _point_partner = new Point();
-        public bool _gender;
+        public bool _gender_female; 
         public bool _child;
         protected int _appearanceRate = 30;
         public int _ticksToNextReproduction { get; set; } = 30;
 
-        public Animal(int x, int y, bool gender, Map map, bool child)
+        public Animal(int x, int y, bool gender_female, Map map, bool child)
         {
             _x = x;
             _y = y;
-            _gender = gender;
+            _gender_female = gender_female;
             _map = map;
             _child = child;
             cols = map._cols - 1;
@@ -76,7 +76,7 @@ namespace LifeSimulation
                 free_cell.RemoveAt(0);
 
 
-                if (FindPartner(x1, y1, _gender) != null)
+                if (FindPartner(x1, y1, _gender_female) != null)
                 {
                     _point_partner.X = x1;
                     _point_partner.Y = y1;
@@ -113,7 +113,7 @@ namespace LifeSimulation
         {
 
             _ticksToNextReproduction = _appearanceRate;
-            if (_gender == true)
+            if (_gender_female == true)
             {
                 GetNewChild();
             }
@@ -186,11 +186,11 @@ namespace LifeSimulation
         {
             PartnerSearchCell();
 
-            if (FindPartner(_x, _y, _gender) != null)
+            if (FindPartner(_x, _y, _gender_female) != null)
             {
                 Reproduction();
             }
-            else if (FindPartner(_point_partner.X, _point_partner.Y, _gender) != null)
+            else if (FindPartner(_point_partner.X, _point_partner.Y, _gender_female) != null)
             {
                 WalkAnimalDefault(_point_partner.X, _point_partner.Y);
             }

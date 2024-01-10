@@ -11,8 +11,8 @@ namespace LifeSimulation
     public abstract class Predator : Animal
     {
         
-        public Predator(int x, int y, bool female, Map map, bool child)
-            : base(x, y, female, map, child)
+        public Predator(int x, int y, bool gender_female, Map map, bool child)
+            : base(x, y, gender_female, map, child)
         {
             _hp = 100;
             _foodscale = 200;

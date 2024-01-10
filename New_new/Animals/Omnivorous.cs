@@ -10,8 +10,8 @@ namespace LifeSimulation
 {
     public abstract class Omnivorous : Animal
     {
-        public Omnivorous(int x, int y, bool female, Map map, bool child)
-            : base(x, y, female, map, child)
+        public Omnivorous(int x, int y, bool gender_female, Map map, bool child)
+            : base(x, y, gender_female, map, child)
         {
             _hp = 100;
             _foodscale = 100;
