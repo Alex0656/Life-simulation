@@ -37,113 +37,113 @@ namespace LifeSimulation
           {
               for (int y = 0; y < _row; y++)
               {
-                  int value_2 = GameLogic.GenerateNumber(0, _density);
-                  field[x, y] = value_2 == 0;
+                  int map_density = GameLogic.GenerateNumber(0, _density);
+                  field[x, y] = map_density == 0;
                   if (field[x, y] == true)
                   {
-                      int value = GameLogic.GenerateNumber(0, 1);
-                      bool temp_0;
-                      if (value == 0)
+                      int random_number = GameLogic.GenerateNumber(0, 1);
+                      bool flag;
+                      if (random_number == 0)
                       {
-                          temp_0 = false;
+                          flag = false;
                       }
                       else
                       {
-                          temp_0 = true;
+                          flag = true;
                       }
-                      int temp = GameLogic.GenerateNumber(0, 100);
-                      int temp_2 = GameLogic.GenerateNumber(0, 10);
-                      if ((temp >= 0) && (temp <= 60))
+                      int number_from_0_to_100 = GameLogic.GenerateNumber(0, 100);
+                      int number_from_0_to_10 = GameLogic.GenerateNumber(0, 10);
+                      if ((number_from_0_to_100 >= 0) && (number_from_0_to_100 <= 60))
                       {
-                          if (temp_2 == 1 || temp_2 == 0)
+                          if (number_from_0_to_10 == 1 || number_from_0_to_10 == 0)
                           {
                               var plant = new PlantInedibleWithoutFruits(x, y, this);
                               _createdPlants.Add(plant);
                           }
-                          else if (temp_2 == 2)
+                          else if (number_from_0_to_10 == 2)
                           {
                               var plant = new PlantInedibleWichFruitsNoPoison(x, y, this);
                               _createdPlants.Add(plant);
                           }
-                          else if (temp_2 == 3)
+                          else if (number_from_0_to_10 == 3)
                           {
                               var plant = new PlantInedibleWichFruitsPoison(x, y, this);
                               _createdPlants.Add(plant);
                           }
 
-                          else if (temp_2 == 4)
+                          else if (number_from_0_to_10 == 4)
                           {
                               var plant = new PlantEdibleWichFruitsNoPoison(x, y, this);
                               _createdPlants.Add(plant);
                           }
-                          else if (temp_2 == 5)
+                          else if (number_from_0_to_10 == 5)
                           {
                               var plant = new PlantEdibleWichFruitsPoison(x, y, this);
                               _createdPlants.Add(plant);
                           }
-                          else if (temp_2 == 6 || temp_2 == 7)
+                          else if (number_from_0_to_10 == 6 || number_from_0_to_10 == 7)
                           {
                               var plant = new PlantEdibleWithoutFruitsNoPoison(x, y, this);
                               _createdPlants.Add(plant);
                           }
-                          else if (temp_2 == 8)
+                          else if (number_from_0_to_10 == 8)
                           {
                               var plant = new PlantEdibleWithoutFruitsPoison(x, y, this);
                               _createdPlants.Add(plant);
                           }
                       }
-                      else if ((temp >= 61) && (temp <= 100))
+                      else if ((number_from_0_to_100 >= 61) && (number_from_0_to_100 <= 100))
                       {
-                          if (temp_2 == 0)
+                          if (number_from_0_to_10 == 0)
                           {
-                              var wolf = new Wolf(x, y, temp_0, this, false);
+                              var wolf = new Wolf(x, y, flag, this, false);
                               _createdAnimals.Add(wolf);
                           }
-                          else if (temp_2 == 1)
+                          else if (number_from_0_to_10 == 1)
                           {
-                              var lion = new Lion(x, y, temp_0, this, false);
+                              var lion = new Lion(x, y, flag, this, false);
                               _createdAnimals.Add(lion);
                           }
-                          else if (temp_2 == 2)
+                          else if (number_from_0_to_10 == 2)
                           {
-                              var lynx = new Lynx(x, y, temp_0, this, false);
+                              var lynx = new Lynx(x, y, flag, this, false);
                               _createdAnimals.Add(lynx);
                           }
 
-                          else if (temp_2 == 3)
+                          else if (number_from_0_to_10 == 3)
                           {
-                              var bear = new Bear(x, y, temp_0, this, false);
+                              var bear = new Bear(x, y, flag, this, false);
                               _createdAnimals.Add(bear);
                           }
-                          else if (temp_2 == 4)
+                          else if (number_from_0_to_10 == 4)
                           {
-                              var hog = new Hog(x, y, temp_0, this, false);
+                              var hog = new Hog(x, y, flag, this, false);
                               _createdAnimals.Add(hog);
                           }
-                          else if (temp_2 == 5)
+                          else if (number_from_0_to_10 == 5)
                           {
-                              var fox = new Fox(x, y, temp_0, this, false);
+                              var fox = new Fox(x, y, flag, this, false);
                               _createdAnimals.Add(fox);
                           }
 
-                          else if (temp_2 == 6)
+                          else if (number_from_0_to_10 == 6)
                           {
-                              var zebra = new Zebra(x, y, temp_0, this, false);
+                              var zebra = new Zebra(x, y, flag, this, false);
                               _createdAnimals.Add(zebra);
                           }
-                          else if (temp_2 == 7)
+                          else if (number_from_0_to_10 == 7)
                           {
-                              var deer = new Deer(x, y, temp_0, this, false);
+                              var deer = new Deer(x, y, flag, this, false);
                               _createdAnimals.Add(deer);
                           }
-                          else if (temp_2 == 8)
+                          else if (number_from_0_to_10 == 8)
                           {
-                              var bunny = new Bunny(x, y, temp_0, this, false);
+                              var bunny = new Bunny(x, y, flag, this, false);
                               _createdAnimals.Add(bunny);
                           }
-                          else if (temp_2 == 9 || temp_2 == 10)
+                          else if (number_from_0_to_10 == 9 || number_from_0_to_10 == 10)
                           {
-                              var human = new Human(x, y, temp_0, this, false);
+                              var human = new Human(x, y, flag, this, false);
                               _createdAnimals.Add(human);
                           }
                       } 
