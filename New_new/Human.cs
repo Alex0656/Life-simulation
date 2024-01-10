@@ -251,15 +251,6 @@ namespace LifeSimulation
             }
         }
 
-        protected bool TimeToDie()
-        {
-            if ((_hp == 0) || (_lifetime == limit_life))
-            {
-                return true;
-            }
-            else { return false; }
-            
-        }
         private int CheckDistance(int _x, int _y)
         {
             List<Point> free_cell = new List<Point>();
