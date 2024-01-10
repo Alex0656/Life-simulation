@@ -17,6 +17,10 @@ namespace LifeSimulation
         public List<KilledAnimal> _createdKilledAnimals { get; set; } = new List<KilledAnimal>();
         public List<Building> _createdBuilding { get; set; } = new List<Building>();
 
+        const int min_range = 0;
+        const int max_range = 100;
+        const int mid_range = 60;
+
         private bool[,] field;
 
         private int _density;
@@ -53,7 +57,7 @@ namespace LifeSimulation
                       }
                       int number_from_0_to_100 = GameLogic.GenerateNumber(0, 100);
                       int number_from_0_to_10 = GameLogic.GenerateNumber(0, 10);
-                      if ((number_from_0_to_100 >= 0) && (number_from_0_to_100 <= 60))
+                      if ((number_from_0_to_100 >= min_range) && (number_from_0_to_100 <= mid_range))
                       {
                           if (number_from_0_to_10 == 1 || number_from_0_to_10 == 0)
                           {
@@ -92,7 +96,7 @@ namespace LifeSimulation
                               _createdPlants.Add(plant);
                           }
                       }
-                      else if ((number_from_0_to_100 >= 61) && (number_from_0_to_100 <= 100))
+                      else if ((number_from_0_to_100 >= mid_range + 1) && (number_from_0_to_100 <= max_range))
                       {
                           if (number_from_0_to_10 == 0)
                           {
