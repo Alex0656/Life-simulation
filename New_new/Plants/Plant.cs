@@ -55,16 +55,16 @@ namespace LifeSimulation
             if (_ticksToNextStage == 0)
             {
                 stage++;
-                if ((stage == 2) || (stage == 3))
-                {
-                    _ticksToNextStage = _appearanceRateStage;
-                }
+                _ticksToNextStage = _appearanceRateStage;
             }
             else
             {
                 _ticksToNextStage--;
             }
         }
+
+
+
 
         protected void SpreadFruitPoison()
         {
