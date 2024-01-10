@@ -161,11 +161,18 @@ namespace LifeSimulation
                     Die();
                 }
             }
-            else if (stage == 1 || stage == 2)
+            else if (TimeToGrow())
             { 
                 Grow();
             }
         }
-        
+        private bool TimeToGrow()
+        {
+            if (stage == 1 || stage == 2)
+            {
+                return true;
+            }
+            else { return false; }
+        }
     }
 }

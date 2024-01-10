@@ -13,11 +13,11 @@ namespace LifeSimulation
         protected Map _map;
         public int _x { get; set; }
         public int _y { get; set; }
-    
-        public int _foodscale = 100; 
+
+        public int _foodscale = 100;
         public int cols;
         public int row;
-        protected int _lifetime = 0; 
+        protected int _lifetime = 0;
         public int _hp = 20;
         protected bool flag1 = true;
 
@@ -27,14 +27,14 @@ namespace LifeSimulation
 
         public Image Image { get; set; }
         public bool death { get; set; } = false;
-        protected Point _point_eat = new Point(0,0);
+        protected Point _point_eat = new Point(0, 0);
 
 
         protected Point _point_partner = new Point();
         public bool _gender;
         public bool _child;
         protected int _appearanceRate = 30;
-        public int _ticksToNextReproduction { get; set; } = 30; 
+        public int _ticksToNextReproduction { get; set; } = 30;
 
         public Animal(int x, int y, bool gender, Map map, bool child)
         {
@@ -111,7 +111,7 @@ namespace LifeSimulation
         }
         protected virtual void Reproduction()
         {
-            
+
             _ticksToNextReproduction = _appearanceRate;
             if (_gender == true)
             {
@@ -296,4 +296,5 @@ namespace LifeSimulation
             }
             else { return false; }
         }
+    }
 }
