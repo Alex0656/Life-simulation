@@ -22,7 +22,6 @@ namespace LifeSimulation
             _x = x;
             _y = y;
             _map = map;
-            //_amount_of_meat = amount_of_meat;
         }
         private void TakePiecePrivate()
         {
