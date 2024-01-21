@@ -2,9 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace New_new
 {
@@ -13,7 +16,7 @@ namespace New_new
         public Fruit(int x, int y, Map map)
             : base(x, y, map)
         {
-            Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\Fruit.png");
+            Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\Fruit.png"));
             _appearanceRate = 20;
             _ticksToNextSpread = 20;
             limit_life = 50;

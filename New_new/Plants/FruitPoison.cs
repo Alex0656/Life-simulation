@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace New_new
 {
@@ -12,7 +15,7 @@ namespace New_new
         public FruitPoison(int x, int y, Map map)
             : base(x, y, map)
         {
-            Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\FruitPoison.png");
+            Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\FruitPoison.png"));
             _appearanceRate = 20;
             _ticksToNextSpread = 20;
             limit_life = 50;

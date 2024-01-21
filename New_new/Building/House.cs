@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Reflection;
+using System.IO;
+using System.Windows.Forms;
 
 namespace New_new
 {
@@ -15,11 +18,11 @@ namespace New_new
         {
             if (village == null)
             {
-                Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\House_2.png");
+                Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\House_2.png"));
             }
             else if(village != null)
             {
-                Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\House_3.png");
+                Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\House_3.png"));
             }
             
         }

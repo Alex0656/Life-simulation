@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms;
 
 namespace New_new
@@ -16,8 +19,8 @@ namespace New_new
         private PictureBox _pictureBox1;
         private int _resolution;
 
-        private Image seed_image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\seed.png");
-        private Image sprout_image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\sprout.png");
+        private Image seed_image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\seed.png"));
+        private Image sprout_image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\sprout.png"));
         public MyGraphics(int resolution, PictureBox pictureBox1, Graphics graphics)
         {
             _resolution = resolution;

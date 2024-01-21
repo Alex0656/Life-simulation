@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace New_new
 {
@@ -12,7 +15,7 @@ namespace New_new
         public PlantEdibleWithoutFruitsNoPoison(int x, int y, Map map)
             : base(x, y, map)
         {
-            Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\EdibleNoPoison.png");
+            Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\EdibleNoPoison.png"));
             _poison = false;
             _appearanceRate = 10;
             _ticksToNextSpread = 10;

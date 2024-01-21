@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace New_new
         public int _x { get; set; }
         public int _y { get; set; }
         private int _amount_of_meat = 10;
-        public Image Image { get; set; } = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\meat.png");
+        public Image Image { get; set; } = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\meat.png"));
         public bool death { get; set; } = false;
         private int _lifetime = 0; 
         private int limit_life = 100;

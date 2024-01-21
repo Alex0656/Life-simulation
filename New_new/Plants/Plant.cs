@@ -41,7 +41,7 @@ namespace New_new
         {
             return _map._createdPlants.FirstOrDefault(p => p._x == x && p._y == y && !(p is Fruit || p is FruitPoison)) != null;
         }
-        protected Boolean IsFreeCellFruit(int x, int y)
+        protected virtual Boolean IsFreeCellFruit(int x, int y)
         {
             return _map._createdPlants.FirstOrDefault(p => p._x == x && p._y == y && (p is Fruit || p is FruitPoison)) != null; // 
         }
@@ -150,7 +150,7 @@ namespace New_new
                 }
             }
         }
-        protected void SpreadFruitNoPoison()
+        public void SpreadFruitNoPoison()
         {
 
             int value = GameLogic.Random(1, 4);
@@ -193,6 +193,7 @@ namespace New_new
         {
             if (stage == 3)
             {
+                Console.WriteLine(_ticksToNextSpread);
                 _ticksToNextSpread--;
                 _lifetime++;
 

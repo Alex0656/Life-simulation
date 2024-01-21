@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace New_new
 {
@@ -12,7 +15,7 @@ namespace New_new
         public Fox(int x, int y, bool female, Map map, bool child)
             : base(x, y, female, map, child)
         {
-            Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\fox_2.png");
+            Image = Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\fox_2.png"));
             _hp = 100;
             _foodscale = 100;
             foodwalk_scale = 70;

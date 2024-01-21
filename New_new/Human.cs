@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace New_new
 {
@@ -25,14 +28,14 @@ namespace New_new
         {
             if (child)
             {
-                Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\child.png");
+                Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\child.png"));
             }
             else if (female)
             {
-                Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\Human_2.png");
+                Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\Human_2.png"));
             }
             else if (!female)
-                Image = Image.FromFile(@"C:\Users\Алексей\source\repos\Life-simulation_02\New_new\img\Human.png");
+                Image = Image.FromFile(Path.Combine(Environment.CurrentDirectory, "img\\Human.png"));
 
             _hp = 100;
             _foodscale = 200;

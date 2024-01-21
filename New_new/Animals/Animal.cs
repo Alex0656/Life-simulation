@@ -251,7 +251,7 @@ namespace New_new
 
         }
         protected abstract void FoodWalk();
-        protected void Die()
+        protected virtual void Die()
         {
             death = true;
         }
@@ -284,8 +284,9 @@ namespace New_new
             if (_hp == 0)
             {
                 Die();
+                return;
             }
-            if (_lifetime == limit_life)
+            if (_lifetime >= limit_life)
             {
                 Die();
             }
